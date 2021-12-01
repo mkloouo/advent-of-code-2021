@@ -6,18 +6,22 @@ export const day1 = async () => {
   const depths = lines.map(Number);
 
   let ascends = 0;
-  let currentAscend = depths[0];
+  let prevAscendSum = null;
+  const getCurrentSum = (i: number) => depths[i] + depths[i + 1] + depths[i + 2];
 
-  for (let i = 1; i < depths.length; ++i) {
-      if (currentAscend < depths[i]) {
-        ++ascends;
+  for (let i = 0; i < depths.length - 2; ++i) {
+      if (prevAscendSum === null) {
+          prevAscendSum = getCurrentSum(i);
+          continue; 
+      } else {
+          const currAscendSum = getCurrentSum(i);
+          if (prevAscendSum < currAscendSum) {
+              ++ascends;
+          }
+
+          prevAscendSum = currAscendSum;
       }
-
-      currentAscend = depths[i];
   }
 
   console.log(`ascends: ${ascends}`);
-
-  
-
 };
