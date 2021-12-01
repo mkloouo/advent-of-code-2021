@@ -1,4 +1,13 @@
 {
+  "main": "src/index.ts",
+  "author": {
+    "email": "mkloouo@gmail.com",
+    "name": "Mykola Odnosumov",
+    "url": "https://github.com/mkloouo"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
   "dependencies": {
     "command-line-args": "^5.2.0",
     "ts-node": "^10.4.0",

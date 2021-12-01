@@ -16,6 +16,6 @@ const DAY_NAMES = Object.freeze(Object.keys(days));
 
 if (!DAY_NAMES.includes(options.day)) {
   console.log(
-    'available days: ' + DAY_NAMES.map((name) => '\t' + name).join('\n')
+    'available days:\n' + DAY_NAMES.map((name) => '\t' + name).join('\n')
   );
 }
