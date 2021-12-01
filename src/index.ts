@@ -1,4 +1,5 @@
 import commandLineArgs from 'command-line-args';
+import { exit } from 'process';
 
 const optionDefinitions: commandLineArgs.OptionDefinition[] = [
   {
@@ -11,11 +12,15 @@ const optionDefinitions: commandLineArgs.OptionDefinition[] = [
 
 const options = commandLineArgs(optionDefinitions);
 
-import days from './days';
-const DAY_NAMES = Object.freeze(Object.keys(days));
+import days, { DAY_NAMES } from './days';
 
-if (!DAY_NAMES.includes(options.day)) {
-  console.log(
-    'available days:\n' + DAY_NAMES.map((name) => '\t' + name).join('\n')
-  );
-}
+(async () => {
+  if (!DAY_NAMES.includes(options.day)) {
+    console.log(
+      'available days:\n' + DAY_NAMES.map((name) => '\t' + name).join('\n')
+    );
+    exit(1);
+  }
+
+  await days[options.day]();
+})().catch((e) => console.log(e));
