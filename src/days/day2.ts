@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 
-export const day1 = async () => {
+export const day2 = async () => {
   const inputContents = readFileSync('./res/day2-input.txt', 'utf-8');
   const lines = inputContents.split('\n');
 
