@@ -5,8 +5,6 @@ const optionDefinitions: commandLineArgs.OptionDefinition[] = [
   {
     name: 'day',
     alias: 'd',
-    defaultValue: 'day1',
-    defaultOption: true,
   },
 ];
 
